@@ -29,7 +29,7 @@ db.student_4.aggregate( [
 ]);
 
 Q6
-// match all the documents where CPGA < 7.5 and displa  y count of such students
+// match all the documents where CPGA < 7.5 and display count of such students
 
 db.student_4.aggregate( [
     {$match: {CGPA: {$lt: 7.5}}},
@@ -49,6 +49,12 @@ db.student_4.aggregate([
     {$project: {_id: 0, course: "$_id", average_CGPA: 1, count: 1}},
     {$sort: {course: 1}}
 ]);
+
+// testing
+db.student_4.aggregate( [
+    {$group: {_id: {year: "$year", course: "$course"}, count: {$sum: 1}, average_CGPA: {$avg: "$CGPA"} }},
+    {$project: {_id: 0, year: "$_id", average_CGPA: 1, count: 1}}
+] );
 
 Q8
 // display all unique courses in the collection

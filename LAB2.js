@@ -18,10 +18,10 @@ db.product_1.insertMany([
 ]);
 
 Q3
-db.product_1.find();
+db.product_1.find({}, {name: 1, price: 1});
 
 Q4
-db.product_1.update(
+db.product_1.updateMany(
     {"price": {$gt: 200}}, // query the results here
     {$set: {"discount" : 10}} // change the results here
 );

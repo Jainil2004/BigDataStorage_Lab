@@ -1,7 +1,7 @@
 LAB 1 (13/1/2024)
 
 Q1
-db.createCollection("Product_1");
+db.createCollection("product");
 
 Q2
 db.product.insertMany([
@@ -33,5 +33,7 @@ Q7
 db.product.find( {$or : [{discount : 10}, {discount : 20}, {discount : 25}] } );
 
 Q8
-db.product.insertOne({name: "product", price: 250, units: 100, discount: 5});
-db.product.find({$and : [{name: "product"}, {price : {$gt : 200}}, {discount: {$lt: 10}}]});
+db.product.insertOne({name: "Balaji Wafers", price: 250, units: 100, discount: 5});
+db.product.find({$and : [{name: "Balaji Wafers"}, {price : {$gt : 200}}, {discount: {$lt: 10}}]});
+
+
